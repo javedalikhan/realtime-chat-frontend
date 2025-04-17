@@ -31,34 +31,25 @@ Users can join the chat by entering a username and instantly start communicating
 - Vite 
 - React Testing Library + Vitest  
 
-**Backend (optional)**  
+**Backend (https://github.com/javedalikhan/realtime-chat-backend)**  
 - Node.js + Express  
 - Socket.IO  
 - PostgreSQL
-
----
-
-## 🔌 Backend Integration
-
-- **API & Realtime Communication**: Handled by Express and Socket.IO.
-- **Database**: PostgreSQL accessed via Prisma ORM.
-- **Environment Variables**:
-  - `DATABASE_URL`: PostgreSQL connection string
-  - `PORT`: Backend port
-- **Running**:
-  - Backend runs on `http://localhost:5000`
-  - Frontend communicates with backend over WebSocket (`/socket.io`)
+- [Backend Repo](https://github.com/javedalikhan/realtime-chat-backend)
 
 ---
 
 ## Getting Started
 
 ### Prerequisites
-
 - Node.js (v18+ recommended)
 - npm or yarn
-- PostgreSQL (locally or remote)
-- Docker (optional for containerized setup)
+- **PostgreSQL** (only required for backend, not frontend)
+- **Docker** (optional for containerized setup of backend)
+
+### Environment Variables
+- Add the `.env` file
+Before running the app, create a `.env` file in the root directory. You can copy the values from `.env.example` and fill in the required values, such as API URLs or other environment-specific settings.
 
 ### Installation
 
@@ -84,7 +75,9 @@ Open http://localhost:5173 in your browser
 ```
 
 ### Running Tests
+This project uses **React Testing Library** for unit and integration tests, and **Vitest** for running the tests.
 
+To run the tests:
 ```bash
 npm test
 ```
@@ -98,39 +91,87 @@ npm run build
 
 ---
 
-## Backend Integration
+### Backend Integration
+Make sure the backend service is up and running. The frontend expects the backend API to be running on `http://localhost:3001` (or the URL specified in your `.env` file).
 
-Make sure backend service is up and running.
-
-Example:
-
-```bash
-## The backend repo for this project is available here with complete instructions:
+The backend repo for this project is available here with complete instructions:
 https://github.com/javedalikhan/realtime-chat-backend
-```
 
 ---
 
 ## Project Structure
 
 ```
-realtime-chat-frontend/
-│
-├── public/                 # Static assets
-├── src/
-│   ├── components/         # Reusable UI components
-│   ├── contexts/           # Context providers (e.g., ChatContext)
-│   ├── hooks/              # Custom React hooks
-│   ├── styles/             # Styled-components or CSS modules
-│   ├── types/              # TypeScript types/interfaces
-│   ├── utils/              # Utility/helper functions
-│   ├── App.tsx             # Main App component
-│   ├── main.tsx            # Entry point
-│
-├── .env                   # Environment variables
-├── vite.config.ts         # Vite configuration
-├── package.json           # Project dependencies and scripts
-└── README.md              # Project documentation
+realtime-chat-frontend
+├─ LICENSE
+├─ README.md
+├─ env.d.ts
+├─ eslint.config.js
+├─ index.html
+├─ package-lock.json
+├─ package.json
+├─ public
+│  └─ vite.svg
+├─ src
+│  ├─ App.tsx
+│  ├─ assets
+│  │  └─ react.svg
+│  ├─ components
+│  │  ├─ chat
+│  │  │  ├─ ErrorFallback
+│  │  │  │  ├─ index.tsx
+│  │  │  │  └─ styles.ts
+│  │  │  ├─ MessageInput
+│  │  │  │  ├─ MessageInput.test.tsx
+│  │  │  │  ├─ index.tsx
+│  │  │  │  └─ styles.ts
+│  │  │  ├─ MessageList
+│  │  │  │  ├─ MessageList.test.tsx
+│  │  │  │  ├─ index.tsx
+│  │  │  │  └─ styles.ts
+│  │  │  ├─ UserNameForm
+│  │  │  │  ├─ UserNameForm.test.tsx
+│  │  │  │  ├─ index.tsx
+│  │  │  │  └─ styles.ts
+│  │  │  └─ index.ts
+│  │  └─ layout
+│  │     ├─ Footer.tsx
+│  │     └─ Header.tsx
+│  ├─ contexts
+│  │  └─ ChatContext
+│  │     ├─ hooks.ts
+│  │     ├─ index.ts
+│  │     ├─ provider.tsx
+│  │     └─ types.ts
+│  ├─ hooks
+│  │  ├─ useAutoScroll.ts
+│  │  ├─ useSessionStorage.ts
+│  │  └─ useSocket.tsx
+│  ├─ main.tsx
+│  ├─ services
+│  │  ├─ api.ts
+│  │  ├─ httpClient.ts
+│  │  ├─ index.ts
+│  │  └─ socket.ts
+│  ├─ styles
+│  │  ├─ GlobalStyles.ts
+│  │  ├─ styled.d.ts
+│  │  └─ theme.ts
+│  ├─ types
+│  │  └─ chat.ts
+│  ├─ vite-env.d.ts
+│  └─ vitest.config.ts
+├─ test-utils
+│  ├─ mocks
+│  │  └─ serverHandlers.ts
+│  └─ testUtils.tsx
+├─ tsconfig.app.json
+├─ tsconfig.json
+├─ tsconfig.node.json
+├─ tsconfig.test.json
+├─ vite.config.ts
+└─ vitest.setup.ts
+
 ```
 
 ---

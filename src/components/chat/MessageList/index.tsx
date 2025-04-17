@@ -35,7 +35,7 @@ export const MessageList = () => {
       messages.map((msg) => (
         <MessageItem 
           key={msg.id} 
-          $isCurrentUser={msg.username === username}
+          $isCurrentUser={(msg.username ?? '').toLowerCase() === (username ?? '').toLowerCase()}
         >
           <MessageHeader>
             <Username>{msg.username}</Username>
