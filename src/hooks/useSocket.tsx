@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { useChat } from "../contexts/ChatContext";
-import { socket } from "../services/socket";
+import { getSocket } from "../services/socket";
 
 export const useSocket = () => {
     const { sendMessage } = useChat();
     
     useEffect(() => {
+        const socket = getSocket();
         socket.connect();
     
         socket.on("connect", () => {
@@ -27,5 +28,5 @@ export const useSocket = () => {
         };
     }, [sendMessage]);
     
-    return { socket };
+    return { socket: getSocket() };
 }

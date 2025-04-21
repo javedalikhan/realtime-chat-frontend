@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useChat } from '../../../contexts/ChatContext';
 import { Badge, Button, Form, Input } from './styles';
 

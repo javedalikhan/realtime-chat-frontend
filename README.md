@@ -175,8 +175,26 @@ realtime-chat-frontend
 ```
 
 ---
+## 🐳 Docker Support
 
+```bash
+## Build Docker Image
+docker build -t realtime-chat-frontend .
 
+## Run the Docker container
+docker run -p 5173:5173 --env-file .env realtime-chat-frontend
+```
+---
+### 🏗 Infrastructure
+
+This project includes:
+
+- `dockerfile`: For building a production-ready backend container
+- `.dockerignore`: To exclude unnecessary files from Docker builds
+- .env.example: Example environment config
+- GitHub Actions workflow (`.github/workflows/docker.yml`) for automatic builds and Docker pushes
+
+---
 ## License
 
 This project is licensed under the MIT License.

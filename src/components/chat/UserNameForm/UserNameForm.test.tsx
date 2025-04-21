@@ -1,7 +1,8 @@
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { UsernameForm } from './';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { Mock, vi } from 'vitest';
 import { useChat } from '../../../contexts/ChatContext';
+import { UsernameForm } from './';
+
 
 vi.mock('../../../contexts/ChatContext', () => ({
   useChat: vi.fn(),
@@ -15,7 +16,7 @@ describe('UsernameForm', () => {
   });
 
   it('renders input form when username is not set', () => {
-    (useChat as vi.Mock).mockReturnValue({ username: '', setUsername: setUsernameMock });
+    (useChat as Mock).mockReturnValue({ username: '', setUsername: setUsernameMock });
 
     render(<UsernameForm />);
 
@@ -24,7 +25,7 @@ describe('UsernameForm', () => {
   });
 
   it('shows greeting badge when username is set', () => {
-    (useChat as vi.Mock).mockReturnValue({ username: 'JohnDoe', setUsername: setUsernameMock });
+    (useChat as Mock).mockReturnValue({ username: 'JohnDoe', setUsername: setUsernameMock });
 
     render(<UsernameForm />);
 
@@ -33,7 +34,7 @@ describe('UsernameForm', () => {
   });
 
   it('calls setUsername with trimmed input on submit', () => {
-    (useChat as vi.Mock).mockReturnValue({ username: '', setUsername: setUsernameMock });
+    (useChat as Mock).mockReturnValue({ username: '', setUsername: setUsernameMock });
 
     render(<UsernameForm />);
     const input = screen.getByPlaceholderText('Enter username') as HTMLInputElement;
@@ -46,7 +47,7 @@ describe('UsernameForm', () => {
   });
 
   it('does not call setUsername if input is empty or whitespace', () => {
-    (useChat as vi.Mock).mockReturnValue({ username: '', setUsername: setUsernameMock });
+    (useChat as Mock).mockReturnValue({ username: '', setUsername: setUsernameMock });
 
     render(<UsernameForm />);
     const input = screen.getByPlaceholderText('Enter username') as HTMLInputElement;
@@ -59,7 +60,7 @@ describe('UsernameForm', () => {
   });
 
   it('enforces minLength and maxLength via input attributes', () => {
-    (useChat as vi.Mock).mockReturnValue({ username: '', setUsername: setUsernameMock });
+    (useChat as Mock).mockReturnValue({ username: '', setUsername: setUsernameMock });
 
     render(<UsernameForm />);
     const input = screen.getByPlaceholderText('Enter username') as HTMLInputElement;

@@ -1,13 +1,13 @@
-import { render, screen, fireEvent} from '../../../../test-utils/testUtils';
 import { vi } from 'vitest';
-import { MessageInput } from './';
+import { fireEvent, render, screen } from '../../../../test-utils/testUtils';
 import { useChat } from '../../../contexts/ChatContext';
+import { MessageInput } from './';
 
 vi.mock('../../../contexts/ChatContext');
 
 // mock implementation of useChat
 const sendMessageMock = vi.fn();
-const useChatMock = useChat as unknown as jest.Mock;
+const useChatMock = useChat as unknown as ReturnType<typeof vi.fn>;
 
 describe('MessageInput', () => {
   beforeEach(() => {

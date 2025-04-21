@@ -42,8 +42,7 @@ export const initSocket = (
   const socket = getSocket();
 
   const onMessage = (msg: Message) => handlers.onMessage(msg);
-  const onError = (error: string) => 
-    handlers.onError(error);
+  const onError = (error: string) => handlers.onError(error);
 
   socket.on('newMessage', onMessage);
   socket.on('error', onError);
