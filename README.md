@@ -9,15 +9,17 @@ Users can join the chat by entering a username and instantly start communicating
 ## Features
 
 - 💬 Real-time messaging with Socket.IO  
-- 🎨 Themed UI with styled-components 
+- 🎨 Themed UI with styled-components  
 - 📱 Responsive design  
-- 🛠️ Error boundaries
-- Auto-scroll to Latest Message
-- Preserve session using sessionStorage
-- Message Persistence ensuring chat history is not lost on refresh
-- Shows username & timestamp of each message
-- Modular and scalable codebase (with contexts, hooks, types)
-- Input validations (min/max length, required)
+- 🛠️ Error boundaries  
+- ♻️ Auto-scroll to Latest Message  
+- 🔐 Preserve session using sessionStorage  
+- 🗃️ Message Persistence ensuring chat history is not lost on refresh  
+- 🧑‍💬 Shows username & timestamp of each message  
+- 🧱 Modular and scalable codebase (contexts, hooks, types)  
+- ✅ Input validations (min/max length, required)  
+- 🐳 Docker support for easy containerized deployment  
+- ⚙️ GitHub Actions workflow for automated Docker builds and pushes  
 
 
 ---

@@ -56,7 +56,7 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
     clearError,
     setUsername,
     sendMessage
-  }), [messages, username, isLoading, error, setUsername, sendMessage]);
+  }), [messages, username, isLoading, error, setUsername, sendMessage, clearError]);
 
   return (
     <ChatContext.Provider value={value}>

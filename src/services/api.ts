@@ -18,6 +18,6 @@ export const fetchMessages = async (params?: {
     });
     return response.data.reverse();
   } catch (error) {
-    throw new Error('Failed to fetch messages');
+    throw new Error('Failed to fetch messages: ' + (error as Error).message);
   }
 };

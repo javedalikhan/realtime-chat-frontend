@@ -3,7 +3,14 @@ import { useChat } from '../../../contexts/ChatContext';
 import { useAutoScroll } from '../../../hooks/useAutoScroll';
 import { ErrorFallback } from '../ErrorFallback';
 import { ErrorContainer } from '../ErrorFallback/styles';
-import { Container, MessageHeader, MessageItem, Timestamp, Username, } from './styles';
+import {
+  Container,
+  InfoMessage,
+  MessageHeader,
+  MessageItem,
+  Timestamp,
+  Username,
+} from './styles';
 
 export const MessageList = () => {
   const { messages, isLoading, username, error } = useChat();
@@ -20,6 +27,14 @@ export const MessageList = () => {
 
   if (isLoading) {
     return <>Loading....</>; 
+  }
+  
+  if (!username) {
+    return (
+      <>
+        <InfoMessage>The messages will start appearing here once you set a username.</InfoMessage>
+      </>
+    );
   }
 
   return (

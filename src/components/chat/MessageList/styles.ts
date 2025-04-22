@@ -35,3 +35,16 @@ export const Timestamp = styled.span`
   opacity: 0.7;
   font-size: 0.75rem;
 `;
+export const InfoMessage = styled.div`
+  padding: ${({ theme }) => theme.spacing.lg};
+  background-color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.text};
+  border-radius: ${({ theme }) => theme.radii.md};
+  font-size: 1rem;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  max-width: 80%;
+  align-self: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+`;
